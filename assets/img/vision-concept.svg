@@ -1,4 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 660" role="img" aria-labelledby="title desc"><title id="title">Object detection study illustration</title><desc id="desc">Illustrative bounding boxes over stylised desk objects; not an experimental prediction</desc><defs><linearGradient id="b" x2="1" y2="1"><stop stop-color="#282d3a"/><stop offset="1" stop-color="#14191f"/></linearGradient><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" opacity=".05"/></pattern></defs><rect width="900" height="660" fill="url(#b)"/><rect width="900" height="660" fill="url(#grid)"/>
-<g transform="rotate(-7 430 345)"><rect x="118" y="175" width="404" height="285" rx="18" fill="#59606a" stroke="#c9cbd1" stroke-width="9"/><rect x="141" y="200" width="358" height="233" rx="8" fill="#181e2a"/><path d="M89 465h465l-36 22H122Z" fill="#8f96a0"/><rect x="110" y="171" width="425" height="325" fill="none" stroke="#d9fb93" stroke-width="3"/><rect x="110" y="140" width="126" height="30" rx="4" fill="#d9fb93"/><text x="123" y="162" font-size="18" font-family="Arial" fill="#152118">laptop 0.99</text></g>
-<g><path d="M655 246h58l15 245H640Z" fill="#65737d"/><path d="M672 226h27l8 24h-44Z" fill="#aab5b5"/><rect x="623" y="205" width="133" height="307" fill="none" stroke="#d9fb93" stroke-width="3"/><rect x="623" y="172" width="143" height="30" rx="4" fill="#d9fb93"/><text x="637" y="193" font-family="Arial" font-size="18" fill="#182018">bottle 0.98</text></g><g><ellipse cx="747" cy="556" rx="48" ry="21" fill="#747e87"/><rect x="692" y="516" width="117" height="69" fill="none" stroke="#d9fb93" stroke-width="3"/><rect x="692" y="486" width="113" height="27" rx="4" fill="#d9fb93"/><text x="700" y="506" font-family="Arial" font-size="18" fill="#182018">mouse</text></g><text x="65" y="90" font-size="14" letter-spacing="3" font-family="Arial" fill="#b9c4b9">COMPUTER VISION / MODEL COMPARISON</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 660" role="img" aria-labelledby="title desc">
+  <title id="title">Object detection concept illustration</title>
+  <desc id="desc">Flat illustration of laptop, bottle and mouse with example object-detection boxes. This is an illustrative concept, not actual model predictions or confidence scores.</desc>
+
+  <!-- Shared visual system with the other project covers: charcoal gradient, subtle dots, lime and sage accents. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#252e2e" />
+      <stop offset="1" stop-color="#111619" />
+    </linearGradient>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.2" fill="#c6e1bd" opacity=".12" />
+    </pattern>
+  </defs>
+
+  <rect width="900" height="660" fill="url(#bg)" />
+  <rect width="900" height="660" fill="url(#dots)" />
+
+  <!-- Section heading matches the other technical diagrams. -->
+  <text x="74" y="85" font-family="Arial, sans-serif" font-size="14"
+        letter-spacing="3" fill="#d9fb93">OBJECT DETECTION / MODEL COMPARISON</text>
+
+  <!-- Stylised laptop: recognizable, but deliberately flat and diagrammatic. -->
+  <g transform="rotate(-6 330 358)">
+    <rect x="117" y="191" width="396" height="266" rx="14"
+          fill="#58666a" stroke="#a8b5b2" stroke-width="6" />
+    <rect x="137" y="210" width="356" height="226" rx="6" fill="#151d22" />
+    <path d="M90 457 H540 L507 482 H124 Z" fill="#7d8a8b" />
+    <path d="M123 468 H506" fill="none" stroke="#b0bbb6" stroke-width="3" opacity=".7" />
+  </g>
+
+  <!-- Bounding boxes are conceptual examples, not measured model output. -->
+  <g fill="none" stroke="#c8eda2" stroke-width="3">
+    <rect x="111" y="171" width="431" height="319" rx="2" />
+    <rect x="611" y="215" width="116" height="294" rx="2" />
+    <rect x="746" y="502" width="124" height="76" rx="2" />
+  </g>
+
+  <!-- Laptop class label. Scores are intentionally omitted to avoid suggesting real predictions. -->
+  <rect x="111" y="137" width="148" height="34" rx="5" fill="#d9fb93" />
+  <text x="124" y="160" font-family="Arial, sans-serif" font-size="18"
+        font-weight="600" fill="#203028">laptop</text>
+
+  <!-- Bottle class and label. -->
+  <path d="M650 262 H689 L705 487 H632 Z" fill="#697a7d" />
+  <path d="M655 235 H682 L693 261 H646 Z" fill="#a3b1ae" />
+  <rect x="611" y="181" width="116" height="34" rx="5" fill="#d9fb93" />
+  <text x="623" y="204" font-family="Arial, sans-serif" font-size="18"
+        font-weight="600" fill="#203028">bottle</text>
+
+  <!-- Mouse class and label. -->
+  <path d="M770 544 Q770 514 808 514 Q849 514 849 544 V558 H770 Z" fill="#748683" />
+  <path d="M808 516 V540" stroke="#acbcb5" stroke-width="3" />
+  <rect x="746" y="468" width="124" height="34" rx="5" fill="#d9fb93" />
+  <text x="758" y="491" font-family="Arial, sans-serif" font-size="18"
+        font-weight="600" fill="#203028">mouse</text>
+
+  <!-- Small provenance marker: an illustration, not a screenshot of detector results. -->
+  <text x="74" y="586" font-family="Arial, sans-serif" font-size="13"
+        letter-spacing="2.1" fill="#a1b2a7">ILLUSTRATIVE DETECTIONS</text>
+  <circle cx="56" cy="581" r="5" fill="#b9de8d" />
 </svg>
