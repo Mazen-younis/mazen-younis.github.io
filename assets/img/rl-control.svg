@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 660" role="img" aria-labelledby="title desc">
+<title id="title">Reinforcement learning control illustration</title><desc id="desc">Minimal feedback-loop illustration showing state input, reinforcement learning agent, simulated control and reward feedback; lines are illustrative only</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#252e2e"/><stop offset="1" stop-color="#111619"/></linearGradient>
+ <linearGradient id="lime" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d9fb93"/><stop offset="1" stop-color="#8fc69f"/></linearGradient>
+ <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.2" fill="#c6e1bd" opacity=".12"/></pattern>
+</defs>
+<rect width="900" height="660" fill="url(#bg)"/><rect width="900" height="660" fill="url(#dots)"/>
+
+
+<g font-family="Arial,sans-serif" fill="#ecf1e9">
+ <text x="74" y="85" font-size="14" letter-spacing="3" fill="#d9fb93">LEARNING THROUGH FEEDBACK</text>
+</g>
+<g fill="none" stroke="#9fbdac" stroke-width="2.5" opacity=".65">
+  <path d="M273 331 H349"/><path d="M563 331 H636"/>
+  <path d="M745 432 V474 H166 V426" stroke-dasharray="7 9"/>
+</g>
+<g fill="url(#lime)"><circle cx="313" cy="331" r="8"/><circle cx="599" cy="331" r="8"/><circle cx="166" cy="474" r="7"/><circle cx="745" cy="474" r="7"/></g>
+<g fill="#101818" stroke="#7a9e8a" stroke-width="2.1">
+  <rect x="72" y="227" width="201" height="204" rx="16"/>
+  <rect x="349" y="204" width="214" height="227" rx="16"/>
+  <rect x="636" y="227" width="216" height="204" rx="16"/>
+</g>
+<g font-family="Arial,sans-serif" fill="#ecf1e9">
+  <text x="96" y="270" font-size="13" letter-spacing="3" opacity=".62">01 / STATE</text>
+  <text x="96" y="324" font-size="29" font-weight="700">Input</text>
+  <text x="96" y="357" font-size="17" fill="#a8bcb0">motor / trajectory</text>
+  <text x="373" y="244" font-size="13" letter-spacing="3" opacity=".62">02 / LEARNING</text>
+  <text x="373" y="291" font-size="28" font-weight="700">RL agent</text>
+  <text x="373" y="324" font-size="17" fill="#a8bcb0">policy + action</text>
+  <text x="662" y="268" font-size="13" letter-spacing="3" opacity=".62">03 / RESPONSE</text>
+  <text x="662" y="317" font-size="27" font-weight="700">Control</text>
+  <text x="662" y="350" font-size="17" fill="#a8bcb0">simulation</text>
+  <text x="309" y="498" font-size="13" letter-spacing="2.5" fill="#c4d5c5">REWARD / TRACKING FEEDBACK</text>
+</g>
+<g fill="#1d3030"><rect x="95" y="380" width="154" height="16" rx="3"/><rect x="372" y="365" width="162" height="36" rx="8"/></g>
+<g fill="none" stroke="#b9e2a4" stroke-width="3" stroke-linecap="round"><path d="M106 389 H120 L128 380 L141 393 L156 379 L168 388 L191 388 L204 378 L224 388 L239 388"/>
+<path d="M387 383 H401 M414 383 H428 M442 383 H456 M470 383 H484 M499 383 H518"/></g>
+<g fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M661 397 H836" stroke="#738f83" stroke-width="1.3"/><path d="M661 369 C689 369 686 359 707 355 S741 350 768 346 S805 343 835 343" stroke="#d9fb93"/><path d="M661 369 C692 371 692 364 711 362 S744 352 769 352 S808 349 835 348" stroke="#91afa3" stroke-dasharray="5 7"/></g>
+
+</svg>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 660" role="img" aria-labelledby="title desc">
+<title id="title">ESP32 and BME280 IoT telemetry illustration</title><desc id="desc">Flat engineering diagram showing BME280 measurements over I2C to ESP32 and MQTT publishing over Wi-Fi</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#252e2e"/><stop offset="1" stop-color="#111619"/></linearGradient>
+ <linearGradient id="lime" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d9fb93"/><stop offset="1" stop-color="#8fc69f"/></linearGradient>
+ <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.2" fill="#c6e1bd" opacity=".12"/></pattern>
+</defs>
+<rect width="900" height="660" fill="url(#bg)"/><rect width="900" height="660" fill="url(#dots)"/>
+
+
+<g font-family="Arial,sans-serif" fill="#ecf1e9"><text x="74" y="85" font-size="14" letter-spacing="3" fill="#d9fb93">FROM SENSOR TO NETWORK</text></g>
+<g fill="none" stroke="#9fbdac" stroke-width="2.5" opacity=".62">
+ <path d="M284 334 H350"/><path d="M557 334 H630"/>
+</g>
+<g fill="url(#lime)"><circle cx="317" cy="334" r="8"/><circle cx="593" cy="334" r="8"/></g>
+<g fill="#101818" stroke="#7a9e8a" stroke-width="2.1">
+ <rect x="68" y="223" width="216" height="223" rx="16"/>
+ <rect x="350" y="207" width="207" height="239" rx="16"/>
+ <rect x="630" y="223" width="219" height="223" rx="16"/>
+</g>
+<g font-family="Arial,sans-serif" fill="#ecf1e9">
+ <text x="92" y="266" font-size="13" letter-spacing="3" opacity=".62">01 / SENSOR</text>
+ <text x="92" y="313" font-size="31" font-weight="700">BME280</text>
+ <text x="376" y="248" font-size="13" letter-spacing="3" opacity=".62">02 / DEVICE</text>
+ <text x="376" y="291" font-size="31" font-weight="700">ESP32</text>
+ <text x="655" y="266" font-size="13" letter-spacing="3" opacity=".62">03 / PUBLISH</text>
+ <text x="655" y="312" font-size="31" font-weight="700">MQTT</text>
+ <text x="295" y="307" font-size="13" letter-spacing="2" fill="#b9dd9a">I²C</text>
+ <text x="572" y="307" font-size="13" letter-spacing="2" fill="#b9dd9a">WI-FI</text>
+</g>
+<g font-family="Arial,sans-serif" font-size="14" letter-spacing="1" fill="#bbcbc0">
+  <text x="124" y="364">TEMP</text><text x="124" y="394">HUMIDITY</text><text x="124" y="424">PRESSURE</text>
+</g>
+<g fill="none" stroke="#b6db96" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M107 355 v10 m-5 -8 v8 a5 5 0 1 0 10 0 v-8 a2.5 2.5 0 0 0 -5 0"/>
+  <path d="M107 382 Q96 396 107 403 Q118 395 107 382 Z"/>
+  <circle cx="107" cy="420" r="7"/><path d="M107 420l4 -4"/>
+</g>
+<!-- Simplified chip symbol instead of an imitation photograph. -->
+<rect x="400" y="324" width="107" height="85" rx="10" fill="#1b302d" stroke="#b6dc9a" stroke-width="2.5"/>
+<rect x="415" y="338" width="77" height="55" rx="7" fill="#0f1b1d" stroke="#7eaa96" stroke-width="1.3"/>
+<g stroke="#b6dc9a" stroke-width="2.5" stroke-linecap="round">
+  <path d="M410 317 v7 M427 317 v7 M445 317 v7 M463 317 v7 M481 317 v7 M498 317 v7"/>
+  <path d="M410 409 v8 M427 409 v8 M445 409 v8 M463 409 v8 M481 409 v8 M498 409 v8"/>
+</g>
+<g fill="#d9fb93"><circle cx="447" cy="365" r="8"/><circle cx="465" cy="365" r="8"/></g>
+<g fill="none" stroke="#b4d9a1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M661 356 H813 M661 376 H793 M661 397 H753"/>
+ <path d="M791 335 q18 -16 36 0 M798 339 q11 -9 22 0" stroke="#d9fb93" stroke-width="2.5"/>
+</g>
+<g font-family="Arial,sans-serif" font-size="12" fill="#b5c8b7" letter-spacing="2"><text x="654" y="421">JSON TELEMETRY</text></g>
+
+</svg>
