@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 660" role="img" aria-labelledby="title desc">
+<title id="title">RTEMS real-time embedded control illustration</title><desc id="desc">Minimal signal-flow illustration of a GPIO interrupt, RTEMS scheduling and task timing, not measured timing data</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#252e2e"/><stop offset="1" stop-color="#111619"/></linearGradient>
+ <linearGradient id="lime" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d9fb93"/><stop offset="1" stop-color="#8fc69f"/></linearGradient>
+ <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.2" fill="#c6e1bd" opacity=".12"/></pattern>
+</defs>
+<rect width="900" height="660" fill="url(#bg)"/><rect width="900" height="660" fill="url(#dots)"/>
+
+
+<!-- Fine-line connections follow the same engineering diagram language as the digital twin cover. -->
+<g fill="none" stroke="#9fbdac" stroke-width="2.5" opacity=".62">
+  <path d="M277 332 H345"/><path d="M561 332 H631"/>
+  <path d="M449 434 V467 H742 V416" stroke-dasharray="7 9" opacity=".52"/>
+</g>
+<g fill="url(#lime)"><circle cx="310" cy="332" r="8"/><circle cx="595" cy="332" r="8"/><circle cx="449" cy="467" r="6"/></g>
+<g fill="#101818" stroke="#7a9e8a" stroke-width="2.1">
+  <rect x="68" y="230" width="209" height="204" rx="16"/>
+  <rect x="345" y="197" width="216" height="238" rx="16"/>
+  <rect x="631" y="230" width="216" height="204" rx="16"/>
+</g>
+<g font-family="Arial,sans-serif" fill="#ecf1e9">
+  <text x="74" y="85" font-size="14" letter-spacing="3" fill="#d9fb93">FROM INTERRUPT TO RESPONSE</text>
+  <text x="93" y="270" font-size="13" letter-spacing="3" opacity=".62">01 / INPUT</text>
+  <text x="93" y="321" font-size="29" font-weight="700">GPIO</text>
+  <text x="93" y="352" font-size="25" font-weight="700">interrupt</text>
+  <text x="374" y="237" font-size="13" letter-spacing="3" opacity=".62">02 / RTOS</text>
+  <text x="374" y="286" font-size="31" font-weight="700">RTEMS</text>
+  <text x="374" y="312" font-size="13" letter-spacing="1" fill="#a1b2a7">SCHEDULING</text>
+  <text x="657" y="270" font-size="13" letter-spacing="3" opacity=".62">03 / OUTPUT</text>
+  <text x="657" y="318" font-size="24" font-weight="700">Task timing</text>
+  <text x="657" y="348" font-size="13" letter-spacing="1" opacity=".65">TASK A</text>
+  <text x="657" y="386" font-size="13" letter-spacing="1" opacity=".65">TASK B</text>
+  <text x="479" y="489" font-size="13" letter-spacing="2" fill="#b7c8bb" opacity=".75">SYNCHRONISED CONTROL</text>
+</g>
+<!-- Two priority/scheduling lanes: an illustration, not measured execution timing. -->
+<rect x="374" y="337" width="153" height="15" rx="3" fill="#263a32"/>
+<rect x="374" y="337" width="96" height="15" rx="3" fill="#b9de8d"/>
+<rect x="374" y="366" width="153" height="15" rx="3" fill="#263a32"/>
+<rect x="429" y="366" width="66" height="15" rx="3" fill="#7eae91"/>
+<g fill="none" stroke="#c4e9a5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M716 354 h15 v-17 h18 v17 h16 v-17 h18 v17 h28"/>
+  <path d="M716 392 h26 v-17 h21 v17 h31 v-17 h15" stroke="#9fbdac"/>
+  <path d="M110 386 h20 v-18 h20 v18 h20 v-18 h20 v18 h34" stroke="#9fbdac"/>
+</g>
+<g fill="#cce9ba" opacity=".8"><circle cx="110" cy="386" r="4"/><circle cx="224" cy="386" r="4"/></g>
+
+</svg>
