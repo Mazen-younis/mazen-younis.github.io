@@ -191,6 +191,78 @@ button {
   gap: 20px;
 }
 
+/* ------------------------------------------------------------
+   LANGUAGE SWITCHER — English / Deutsch
+
+   Place this inside .nav-right on every English and German page.
+   Use aria-current="page" on the active language link only.
+   The actual URLs will be defined separately in each HTML page.
+
+   Example for the English homepage:
+   <nav class="language-switch" aria-label="Language / Sprache">
+     <a class="language-switch__link" href="index.html"
+        hreflang="en" lang="en" aria-current="page">EN</a>
+     <span class="language-switch__separator" aria-hidden="true">/</span>
+     <a class="language-switch__link" href="de/index.html"
+        hreflang="de" lang="de">DE</a>
+   </nav>
+
+   Normal links work even with JavaScript disabled.
+   ------------------------------------------------------------ */
+
+.language-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid rgba(231, 235, 226, .22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .035);
+  white-space: nowrap;
+}
+
+.language-switch__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  min-height: 38px;
+  padding: 0 5px;
+  border-radius: 999px;
+  color: #b9c4bd;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: .02em;
+  transition: color .2s ease, background-color .2s ease;
+}
+
+.language-switch__link:hover:not([aria-current="page"]) {
+  color: var(--white);
+  background: rgba(217, 246, 139, .1);
+}
+
+.language-switch__link[aria-current="page"] {
+  color: var(--accent-ink);
+  background: var(--accent);
+}
+
+.language-switch__link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.language-switch__separator {
+  color: #83918a;
+  font-family: var(--mono);
+  font-size: 10px;
+  line-height: 1;
+  user-select: none;
+}
+
 .nav-contact {
   display: inline-flex;
   align-items: center;
@@ -2042,6 +2114,15 @@ button {
 
   .nav-contact {
     display: none;
+  }
+
+  /* Keep the language switcher visible beside the mobile menu button. */
+  .nav-inner {
+    gap: 12px;
+  }
+
+  .nav-right {
+    gap: 12px;
   }
 
   .site-header {
