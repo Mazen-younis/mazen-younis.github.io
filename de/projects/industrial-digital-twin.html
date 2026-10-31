@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="de">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="dark light" name="color-scheme"/>
+  <title>
+   Integration industrieller Daten in den digitalen Zwilling &mdash; Mazen Younis
+  </title>
+  <meta content="Wie Maschinensignale &uuml;ber OPC UA und externe Sensordaten in einer Asset Administration Shell zusammengef&uuml;hrt und f&uuml;r Monitoring und persistente Speicherung bereitgestellt werden." name="description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="Integration industrieller Daten in den digitalen Zwilling &mdash; Mazen Younis" property="og:title"/>
+  <meta content="Wie Maschinensignale &uuml;ber OPC UA und externe Sensordaten in einer Asset Administration Shell zusammengef&uuml;hrt und f&uuml;r Monitoring und persistente Speicherung bereitgestellt werden." property="og:description"/>
+  <meta content="https://mazen-younis.github.io/assets/social-preview.png" property="og:image"/>
+  <link href="https://mazen-younis.github.io/de/projects/industrial-digital-twin.html" rel="canonical"/>
+  <link href="https://mazen-younis.github.io/projects/industrial-digital-twin.html" hreflang="en" rel="alternate"/>
+  <link href="https://mazen-younis.github.io/de/projects/industrial-digital-twin.html" hreflang="de" rel="alternate"/>
+  <link href="https://mazen-younis.github.io/projects/industrial-digital-twin.html" hreflang="x-default" rel="alternate"/>
+  <meta content="https://mazen-younis.github.io/de/projects/industrial-digital-twin.html" property="og:url"/>
+  <meta content="de_DE" property="og:locale"/>
+  <meta content="#101519" name="theme-color"/>
+  <link href="../../assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet"/>
+  <link href="../../styles.css" rel="stylesheet"/>
+  <script>
+   document.documentElement.classList.add('js')
+  </script>
+  <script defer="" src="../../script.js">
+  </script>
+ </head>
+ <body>
+  <a class="skip-link" href="#main">
+   Zum Inhalt springen
+  </a>
+  <div aria-hidden="true" class="scroll-progress" id="scroll-progress">
+  </div>
+  <header class="site-header" id="site-header">
+   <div class="container nav-inner">
+    <a aria-label="Mazen Younis &mdash; Startseite" class="brand" href="../index.html">
+     <span class="brand-glyph">
+      M
+      <span class="brand-slash">
+       /
+      </span>
+      Y
+     </span>
+     <span class="brand-name">
+      MAZEN YOUNIS
+      <span class="brand-dot">
+       ✳
+      </span>
+      <small>
+       INGENIEUR &amp; SOFTWAREENTWICKLER
+      </small>
+     </span>
+    </a>
+    <nav aria-label="Hauptnavigation" class="desktop-nav">
+     <a href="../index.html#about">
+      &Uuml;ber mich
+     </a>
+     <a href="../index.html#work">
+      Projekte
+     </a>
+     <a href="../index.html#experience">
+      Erfahrung
+     </a>
+    </nav>
+    <div class="nav-right">
+     <nav aria-label="Sprache der Website / Website language" class="language-switch">
+      <a aria-label="Switch to English / Zur englischen Version wechseln" class="language-switch__link" data-language-switch="" href="../../projects/industrial-digital-twin.html" hreflang="en" lang="en">
+       EN
+      </a>
+      <span aria-hidden="true" class="language-switch__separator">
+       /
+      </span>
+      <a aria-current="page" aria-label="Deutsch (aktuelle Sprache)" class="language-switch__link" data-language-switch="" href="industrial-digital-twin.html" hreflang="de" lang="de">
+       DE
+      </a>
+     </nav>
+     <a class="nav-contact" href="../index.html#contact">
+      Kontakt
+      <span aria-hidden="true">
+       &nearrow;
+      </span>
+     </a>
+     <button aria-controls="mobile-nav" aria-expanded="false" aria-label="Men&uuml; &ouml;ffnen" class="menu-toggle" id="menu-toggle" type="button">
+      <span>
+      </span>
+      <span>
+      </span>
+     </button>
+    </div>
+   </div>
+   <nav aria-label="Mobile Navigation" class="mobile-nav" hidden="" id="mobile-nav">
+    <a href="../index.html#about">
+     &Uuml;ber mich
+    </a>
+    <a href="../index.html#work">
+     Projekte
+    </a>
+    <a href="../index.html#experience">
+     Erfahrung
+    </a>
+    <a href="../index.html#contact">
+     Kontakt
+    </a>
+   </nav>
+  </header>
+  <main id="main">
+   <section class="case-hero">
+    <div class="container">
+     <a class="back-link" href="../index.html#work">
+      <span aria-hidden="true">
+       &larr;
+      </span>
+      Alle Projekte
+     </a>
+     <div class="case-heading">
+      <div class="eyebrow">
+       <span class="signal-dot">
+       </span>
+       PROJEKT 01 / INDUSTRIELLE SOFTWARE / INDUSTRIE 4.0
+      </div>
+      <h1>
+       Integration industrieller Daten in den digitalen Zwilling
+      </h1>
+      <p class="case-subtitle">
+       Maschinen- und Sensordaten nutzbar, zug&auml;nglich und vernetzt machen.
+      </p>
+      <div class="case-actions">
+       <a class="button button-accent" href="https://github.com/mazen-younis/Sensor-Integration-OPC-UA-AAS" rel="noopener noreferrer" target="_blank">
+        Auf GitHub ansehen
+        <span>
+         <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24">
+          <path d="M5 19 19 5M8 5h11v11">
+          </path>
+         </svg>
+        </span>
+       </a>
+       <span>
+        2026 / Bachelorarbeit
+       </span>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="case-media-section">
+    <div class="container">
+     <div class="case-main-art">
+      <img alt="Schematische Illustration der industriellen Signalverarbeitung f&uuml;r einen digitalen Zwilling" src="../../assets/img/industrial-systems.svg"/>
+      <span>
+       INDUSTRIELLE VERNETZUNG / SYSTEM&Uuml;BERSICHT
+      </span>
+     </div>
+    </div>
+   </section>
+   <section class="case-body-section">
+    <div class="container case-body-grid">
+     <aside class="case-sidebar">
+      <div class="sidebar-sticky">
+       <span class="tiny-label">
+        PROJEKT IM &Uuml;BERBLICK
+       </span>
+       <div class="case-facts">
+        <div>
+         <span>
+          PROBLEM
+         </span>
+         <strong>
+          Getrennte Maschinen- und Sensordatenstr&ouml;me
+         </strong>
+        </div>
+        <div>
+         <span>
+          ANSATZ
+         </span>
+         <strong>
+          Modulare Datenintegration
+         </strong>
+        </div>
+        <div>
+         <span>
+          UMFANG
+         </span>
+         <strong>
+          Softwaregrundlage, kein pr&auml;diktives ML-Modell
+         </strong>
+        </div>
+       </div>
+       <div class="case-tags">
+        <span>
+         OPC UA
+        </span>
+        <span>
+         Asset Administration Shell
+        </span>
+        <span>
+         Python
+        </span>
+        <span>
+         Docker
+        </span>
+       </div>
+       <div class="case-credit">
+        <span>
+         PROJEKTHINTERGRUND
+        </span>
+        <p>
+         Eigenst&auml;ndige Bachelorarbeit mit wissenschaftlicher und betrieblicher Betreuung
+        </p>
+       </div>
+      </div>
+     </aside>
+     <div class="case-story">
+      <div class="case-intro">
+       Eine Architektur zur industriellen Datenintegration, die Maschinensignale &uuml;ber OPC UA und externe Sensordaten in einer Asset Administration Shell zusammenf&uuml;hrt, mit persistenter Speicherung und Live-Monitoring.
+      </div>
+      <div class="story-block">
+       <span class="story-index">
+        01 / DIE HERAUSFORDERUNG
+       </span>
+       <h2>
+        Die Herausforderung
+       </h2>
+       <p>
+        Maschineninterne Signale und externe Sensordaten werden h&auml;ufig &uuml;ber unterschiedliche Schnittstellen bereitgestellt. Im Mittelpunkt stand die Frage, wie sich diese Datenquellen in einer einheitlichen Architektur zusammenf&uuml;hren lassen, ohne ihren industriellen Kontext zu verlieren.
+       </p>
+      </div>
+      <div class="story-block">
+       <span class="story-index">
+        02 / DER ANSATZ
+       </span>
+       <h2>
+        Der Ansatz
+       </h2>
+       <p>
+        Ich konzipierte eine modulare Pipeline zur Datenerfassung und -integration: OPC-UA-Datenabfrage, Verarbeitung externer Sensordaten, Backend-Dienste, persistente Speicherung in MongoDB, Live-Monitoring und semantische Zuordnung zu einer Asset Administration Shell mithilfe von Eclipse BaSyx.
+       </p>
+       <ul>
+        <li>
+         Maschinensignale &uuml;ber OPC UA und externe Sensordaten angebunden
+        </li>
+        <li>
+         Ausgew&auml;hlte Eigenschaften in AAS-Teilmodelle &uuml;bertragen
+        </li>
+        <li>
+         Backend-Dienste f&uuml;r Kommunikation und Monitoring entwickelt
+        </li>
+        <li>
+         Dienste f&uuml;r einen besser reproduzierbaren Betrieb containerisiert
+        </li>
+       </ul>
+      </div>
+      <div class="story-block">
+       <span class="story-index">
+        03 / DAS ERGEBNIS
+       </span>
+       <h2>
+        Das Ergebnis
+       </h2>
+       <p>
+        Es entstand eine dokumentierte, funktionsf&auml;hige Integrationsgrundlage, die anhand von Normalbetrieb, Last- und Fehlerszenarien untersucht wurde. Modelle des maschinellen Lernens f&uuml;r Predictive Maintenance waren ausdr&uuml;cklich nicht Teil der Umsetzung.
+       </p>
+       <blockquote>
+        Eine erweiterbare Grundlage f&uuml;r zuk&uuml;nftiges Condition Monitoring.
+       </blockquote>
+      </div>
+      <div class="story-block">
+       <span class="story-index">
+        04 / AUSGEW&Auml;HLTE EINBLICKE
+       </span>
+       <h2>
+        Einblicke in das Projekt
+       </h2>
+       <div class="case-gallery">
+        <figure>
+         <img alt="Schematische Darstellung einer industriellen Datenintegrationspipeline" loading="lazy" src="../../assets/img/industrial-systems.svg"/>
+         <figcaption>
+          Schematische Darstellung einer industriellen Datenintegrationspipeline
+         </figcaption>
+        </figure>
+       </div>
+      </div>
+      <div class="case-note">
+       <span>
+        HINWEIS ZUR TRANSPARENZ
+       </span>
+       <p>
+        Die &ouml;ffentliche Dokumentation enth&auml;lt bewusst weder vertraulichen industriellen Quellcode noch Zugangsdaten oder interne Infrastrukturdetails.
+       </p>
+      </div>
+      <div class="story-links">
+       <h2>
+        Projekt im Detail
+       </h2>
+       <a href="https://github.com/mazen-younis/Sensor-Integration-OPC-UA-AAS" rel="noopener noreferrer" target="_blank">
+        <span>
+         Repository ansehen
+        </span>
+        <span>
+         <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24">
+          <path d="M5 19 19 5M8 5h11v11">
+          </path>
+         </svg>
+        </span>
+       </a>
+       <a href="https://github.com/mazen-younis/Sensor-Integration-OPC-UA-AAS/tree/main/docs/architecture" rel="noopener noreferrer" target="_blank">
+        <span>
+         Architekturdokumentation
+        </span>
+        <span>
+         <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24">
+          <path d="M5 19 19 5M8 5h11v11">
+          </path>
+         </svg>
+        </span>
+       </a>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="next-project">
+    <div class="container">
+     <div>
+      <span class="tiny-label">
+       ALS N&Auml;CHSTES / PROJEKT 02
+      </span>
+      <a href="rtems-real-time-control.html">
+       RTEMS: Echtzeitf&auml;hige Embedded-Steuerung
+       <span>
+        <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24">
+         <path d="M5 19 19 5M8 5h11v11">
+         </path>
+        </svg>
+       </span>
+      </a>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="site-footer">
+   <div class="container">
+    <div class="footer-top">
+     <div>
+      <a class="footer-monogram" href="../index.html">
+       M
+       <span>
+        /
+       </span>
+       Y
+      </a>
+      <p>
+       Software, die die physische
+       <br/>
+       und die intelligente Welt verbindet.
+      </p>
+     </div>
+     <div class="footer-links">
+      <a href="../index.html#work">
+       Projekte
+      </a>
+      <a href="../index.html#about">
+       &Uuml;ber mich
+      </a>
+      <a download="" href="../../assets/cv/Mazen_Younis_CV_EN.pdf">
+       CV / EN
+      </a>
+      <a download="" href="../../assets/cv/Mazen_Younis_CV_DE.pdf">
+       CV / DE
+      </a>
+     </div>
+     <div class="footer-links">
+      <a href="https://github.com/mazen-younis" rel="noopener noreferrer" target="_blank">
+       GitHub
+       <span aria-hidden="true" class="footer-arrow">
+        &nearrow;
+       </span>
+      </a>
+      <a href="https://www.linkedin.com/in/mazen-younis/" rel="noopener noreferrer" target="_blank">
+       LinkedIn
+       <span aria-hidden="true" class="footer-arrow">
+        &nearrow;
+       </span>
+      </a>
+      <a href="mailto:mazenyounis95@gmail.com">
+       E-Mail
+       <span aria-hidden="true" class="footer-arrow">
+        &nearrow;
+       </span>
+      </a>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <span>
+      &copy; 2026 Mazen Younis
+     </span>
+     <span>
+      Durchdacht gestaltet &middot; Entwickelt in Berlin
+     </span>
+     <a href="#main">
+      Zur&uuml;ck nach oben &uarr;
+     </a>
+    </div>
+   </div>
+  </footer>
+ </body>
+</html>
+

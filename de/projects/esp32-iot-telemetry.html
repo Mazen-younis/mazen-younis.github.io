@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="de">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="dark light" name="color-scheme"/>
+  <title>
+   ESP32: Umweltdaten per MQTT &uuml;bertragen &mdash; Mazen Younis
+  </title>
+  <meta content="Ein BME280-Sensor erfasst Messwerte &uuml;ber I&sup2;C an einem ESP32-Mikrocontroller, der sie mit ESP-IDF und C als JSON-Telemetrie &uuml;ber WLAN und MQTT &uuml;bertr&auml;gt." name="description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="ESP32: Umweltdaten per MQTT &uuml;bertragen &mdash; Mazen Younis" property="og:title"/>
+  <meta content="Ein BME280-Sensor erfasst Messwerte &uuml;ber I&sup2;C an einem ESP32-Mikrocontroller, der sie mit ESP-IDF und C als JSON-Telemetrie &uuml;ber WLAN und MQTT &uuml;bertr&auml;gt." property="og:description"/>
+  <meta content="https://mazen-younis.github.io/assets/social-preview.png" property="og:image"/>
+  <link href="https://mazen-younis.github.io/de/projects/esp32-iot-telemetry.html" rel="canonical"/>
+  <link href="https://mazen-younis.github.io/projects/esp32-iot-telemetry.html" hreflang="en" rel="alternate"/>
+  <link href="https://mazen-younis.github.io/de/projects/esp32-iot-telemetry.html" hreflang="de" rel="alternate"/>
+  <link href="https://mazen-younis.github.io/projects/esp32-iot-telemetry.html" hreflang="x-default" rel="alternate"/>
+  <meta content="https://mazen-younis.github.io/de/projects/esp32-iot-telemetry.html" property="og:url"/>
+  <meta content="de_DE" property="og:locale"/>
+  <meta content="#101519" name="theme-color"/>
+  <link href="../../assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet"/>
+  <link href="../../styles.css" rel="stylesheet"/>
+  <script>
+   document.documentElement.classList.add('js')
+  </script>
+  <script defer="" src="../../script.js">
+  </script>
+ </head>
+ <body>
+  <a class="skip-link" href="#main">
+   Skip to content
+  </a>
+  <div aria-hidden="true" class="scroll-progress" id="scroll-progress">
+  </div>
+  <header class="site-header" id="site-header">
+   <div class="container nav-inner">
+    <a aria-label="Mazen Younis &mdash; Startseite" class="brand" href="../index.html">
+     <span class="brand-glyph">
+      M
+      <span class="brand-slash">
+       /
+      </span>
+      Y
+     </span>
+     <span class="brand-name">
+      MAZEN YOUNIS
+      <span class="brand-dot">
+       ✳
+      </span>
+      <small>
+       INGENIEUR &amp; SOFTWAREENTWICKLER
+      </small>
+     </span>
+    </a>
+    <nav aria-label="Hauptnavigation" class="desktop-nav">
+     <a href="../index.html#about">
+      &Uuml;ber mich
+     </a>
+     <a href="../index.html#work">
+      Projekte
+     </a>
+     <a href="../index.html#experience">
+      Erfahrung
+     </a>
+    </nav>
+    <div class="nav-right">
+     <nav aria-label="Sprache der Website / Website language" class="language-switch">
+      <a aria-label="Switch to English / Zur englischen Version wechseln" class="language-switch__link" data-language-switch="" href="../../projects/esp32-iot-telemetry.html" hreflang="en" lang="en">
+       EN
+      </a>
+      <span aria-hidden="true" class="language-switch__separator">
+       /
+      </span>
+      <a aria-current="page" aria-label="Deutsch (aktuelle Sprache)" class="language-switch__link" data-language-switch="" href="esp32-iot-telemetry.html" hreflang="de" lang="de">
+       DE
+      </a>
+     </nav>
+     <a class="nav-contact" href="../index.html#contact">
+      Kontakt
+      <span aria-hidden="true">
+       &nearrow;
+      </span>
+     </a>
+     <button aria-controls="mobile-nav" aria-expanded="false" aria-label="Men&uuml; &ouml;ffnen" class="menu-toggle" id="menu-toggle" type="button">
+      <span>
+      </span>
+      <span>
+      </span>
+     </button>
+    </div>
+   </div>
+   <nav aria-label="Mobile Navigation" class="mobile-nav" hidden="" id="mobile-nav">
+    <a href="../index.html#about">
+     &Uuml;ber mich
+    </a>
+    <a href="../index.html#work">
+     Projekte
+    </a>
+    <a href="../index.html#experience">
+     Erfahrung
+    </a>
+    <a href="../index.html#contact">
+     Kontakt
+    </a>
+   </nav>
+  </header>
+  <main id="main">
+   <section class="case-hero">
+    <div class="container">
+     <a class="back-link" href="../index.html#work">
+      <span aria-hidden="true">
+       &larr;
+      </span>
+      Alle Projekte
+     </a>
+     <div class="case-heading">
+      <div class="eyebrow">
+       <span class="signal-dot">
+       </span>
+       PROJEKT 05 / EMBEDDED IOT / SENSORDATEN&Uuml;BERTRAGUNG
+      </div>
+      <h1>
+       ESP32: Umweltdaten per MQTT &uuml;bertragen
+      </h1>
+      <p class="case-subtitle">
+       Kleines Ger&auml;t. Echter Sensor. Vernetzte Daten.
+      </p>
+      <div class="case-actions">
+       <a class="button button-accent" href="https://github.com/mazen-younis/esp32-bme280-mqtt-iot" rel="noopener noreferrer" target="_blank">
+        Auf GitHub ansehen
+        <span>
+         <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24">
+          <path d="M5 19 19 5M8 5h11v11">
+          </path>
+         </svg>
+        </span>
+       </a>
+       <span>
+        2026 / Studienprojekt im Master
+       </span>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="case-media-section">
+    <div class="container">
+     <div class="case-main-art">
+      <img alt="Urspr&uuml;nglicher Versuchsaufbau mit ESP32 und BME280-Sensor" src="../../assets/img/iot-hardware.webp"/>
+      <span>
+       IOT / VOM SENSOR INS NETZWERK
+      </span>
+     </div>
+    </div>
+   </section>
+   <section class="case-body-section">
+    <div class="container case-body-grid">
+     <aside class="case-sidebar">
+      <div class="sidebar-sticky">
+       <span class="tiny-label">
+        PROJEKT IM &Uuml;BERBLICK
+       </span>
+       <div class="case-facts">
+        <div>
+         <span>
+          BOARD
+         </span>
+         <strong>
+          ESP32-WROVER-DEV
+         </strong>
+        </div>
+        <div>
+         <span>
+          SENSOR
+         </span>
+         <strong>
+          BME280 &uuml;ber I&sup2;C
+         </strong>
+        </div>
+        <div>
+         <span>
+          AUSGABE
+         </span>
+         <strong>
+          JSON-Nachrichten &uuml;ber MQTT
+         </strong>
+        </div>
+       </div>
+       <div class="case-tags">
+        <span>
+         ESP32
+        </span>
+        <span>
+         ESP-IDF
+        </span>
+        <span>
+         I&sup2;C
+        </span>
+        <span>
+         MQTT
+        </span>
+       </div>
+       <div class="case-credit">
+        <span>
+         PROJEKTHINTERGRUND
+        </span>
+        <p>
+         Gemeinschaftsprojekt mit Mert Satici
+        </p>
+       </div>
+      </div>
+     </aside>
+     <div class="case-story">
+      <div class="case-intro">
+       Ein &uuml;ber I&sup2;C angeschlossener BME280-Sensor liefert Messdaten an einen ESP32-Mikrocontroller, der diese mithilfe von ESP-IDF und C als JSON-Telemetrie &uuml;ber WLAN und MQTT ver&ouml;ffentlicht.
+      </div>
+      <div class="story-block">
+       <span class="story-index">
+        01 / DIE HERAUSFORDERUNG
+       </span>
+       <h2>
+        Die Herausforderung
+       </h2>
+       <p>
+        Umweltdaten werden erst dann nutzbar, wenn ein Embedded-Ger&auml;t sie zuverl&auml;ssig erfasst, strukturiert und an andere Systeme &uuml;bertragen kann.
+       </p>
+      </div>
+      <div class="story-block">
+       <span class="story-index">
+        02 / DER ANSATZ
+       </span>
+       <h2>
+        Der Ansatz
+       </h2>
+       <p>
+        Wir verbanden den BME280 &uuml;ber I&sup2;C und nutzten ESP-IDF f&uuml;r die Messwerterfassung, WLAN-Verbindung und MQTT-&Uuml;bertragung. Der &ouml;ffentlich bereitgestellte Quellcode wurde gegen&uuml;ber dem urspr&uuml;nglichen Versuch angepasst: Fest einprogrammierte Zugangsdaten wurden entfernt und die Fehlerbehandlung verbessert.
+       </p>
+       <ul>
+        <li>
+         Sensorerkennung und Kommunikation &uuml;ber I&sup2;C
+        </li>
+        <li>
+         Erfassung von Temperatur, Luftfeuchtigkeit und Luftdruck
+        </li>
+        <li>
+         FreeRTOS Event Groups und Verwaltung des WLAN-Verbindungszustands
+        </li>
+        <li>
+         JSON-Telemetrie &uuml;ber MQTT mit dokumentiertem Validierungsumfang
+        </li>
+       </ul>
+      </div>
+      <div class="story-block">
+       <span class="story-index">
+        03 / DAS ERGEBNIS
+       </span>
+       <h2>
+        Das Ergebnis
+       </h2>
+       <p>
+        Die urspr&uuml;nglichen Laboraufzeichnungen zeigen die Erkennung des Ger&auml;ts an Adresse 0x76, laufende Messwerte und MQTT-Ver&ouml;ffentlichungsanfragen. Die sicherheits&uuml;berarbeitete &ouml;ffentliche Version wurde weder unabh&auml;ngig kompiliert noch erneut auf der urspr&uuml;nglichen Hardware getestet.
+       </p>
+       <blockquote>
+        Ein vollst&auml;ndiger Laborablauf: BME280 &rarr; ESP32 &rarr; WLAN &rarr; MQTT.
+       </blockquote>
+      </div>
+      <div class="story-block">
+       <span class="story-index">
+        04 / AUSGEW&Auml;HLTE EINBLICKE
+       </span>
+       <h2>
+        Einblicke in das Projekt
+       </h2>
+       <div class="case-gallery">
+        <figure>
+         <img alt="ESP32/BME280-Hardwareaufbau" loading="lazy" src="../../assets/img/iot-hardware.webp"/>
+         <figcaption>
+          ESP32/BME280-Hardwareaufbau
+         </figcaption>
+        </figure>
+        <figure>
+         <img alt="Urspr&uuml;ngliches MQTT-Protokoll mit entfernten privaten Angaben" loading="lazy" src="../../assets/img/mqtt-log.webp"/>
+         <figcaption>
+          Urspr&uuml;ngliches MQTT-Protokoll ohne private Angaben
+         </figcaption>
+        </figure>
+       </div>
+      </div>
+      <div class="case-note">
+       <span>
+        HINWEIS ZUR TRANSPARENZ
+       </span>
+       <p>
+        Die urspr&uuml;nglichen Labortests waren erfolgreich. Der ver&ouml;ffentlichte, um Zugangsdaten bereinigte Code wurde jedoch nicht erneut mit ESP-IDF gebaut oder validiert.
+       </p>
+      </div>
+      <div class="story-links">
+       <h2>
+        Projekt im Detail
+       </h2>
+       <a href="https://github.com/mazen-younis/esp32-bme280-mqtt-iot" rel="noopener noreferrer" target="_blank">
+        <span>
+         Repository ansehen
+        </span>
+        <span>
+         <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24">
+          <path d="M5 19 19 5M8 5h11v11">
+          </path>
+         </svg>
+        </span>
+       </a>
+       <a href="https://github.com/mazen-younis/esp32-bme280-mqtt-iot/tree/main/results" rel="noopener noreferrer" target="_blank">
+        <span>
+         Labornachweise ansehen
+        </span>
+        <span>
+         <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24">
+          <path d="M5 19 19 5M8 5h11v11">
+          </path>
+         </svg>
+        </span>
+       </a>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="next-project">
+    <div class="container">
+     <div>
+      <span class="tiny-label">
+       ALS N&Auml;CHSTES / PROJEKT 01
+      </span>
+      <a href="industrial-digital-twin.html">
+       Integration industrieller Daten in den digitalen Zwilling
+       <span>
+        <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24">
+         <path d="M5 19 19 5M8 5h11v11">
+         </path>
+        </svg>
+       </span>
+      </a>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="site-footer">
+   <div class="container">
+    <div class="footer-top">
+     <div>
+      <a class="footer-monogram" href="../index.html">
+       M
+       <span>
+        /
+       </span>
+       Y
+      </a>
+      <p>
+       Software, die die physische
+       <br/>
+       und die intelligente Welt verbindet.
+      </p>
+     </div>
+     <div class="footer-links">
+      <a href="../index.html#work">
+       Projekte
+      </a>
+      <a href="../index.html#about">
+       &Uuml;ber mich
+      </a>
+      <a download="" href="../../assets/cv/Mazen_Younis_CV_EN.pdf">
+       CV / EN
+      </a>
+      <a download="" href="../../assets/cv/Mazen_Younis_CV_DE.pdf">
+       CV / DE
+      </a>
+     </div>
+     <div class="footer-links">
+      <a href="https://github.com/mazen-younis" rel="noopener noreferrer" target="_blank">
+       GitHub
+       <span aria-hidden="true" class="footer-arrow">
+        &nearrow;
+       </span>
+      </a>
+      <a href="https://www.linkedin.com/in/mazen-younis/" rel="noopener noreferrer" target="_blank">
+       LinkedIn
+       <span aria-hidden="true" class="footer-arrow">
+        &nearrow;
+       </span>
+      </a>
+      <a href="mailto:mazenyounis95@gmail.com">
+       E-Mail
+       <span aria-hidden="true" class="footer-arrow">
+        &nearrow;
+       </span>
+      </a>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <span>
+      &copy; 2026 Mazen Younis
+     </span>
+     <span>
+      Durchdacht gestaltet &middot; Entwickelt in Berlin
+     </span>
+     <a href="#main">
+      Zur&uuml;ck nach oben &uarr;
+     </a>
+    </div>
+   </div>
+  </footer>
+ </body>
+</html>
+

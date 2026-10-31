@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="de">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="dark light" name="color-scheme"/>
+  <title>
+   Objekterkennung: YOLOv8 vs. Faster R-CNN &mdash; Mazen Younis
+  </title>
+  <meta content="Training und Vergleich von einstufigen und zweistufigen Objektdetektoren f&uuml;r f&uuml;nf allt&auml;gliche Gegenstandsklassen, einschlie&szlig;lich Datensatzentwicklung, Augmentierung und Evaluierung." name="description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="Objekterkennung: YOLOv8 vs. Faster R-CNN &mdash; Mazen Younis" property="og:title"/>
+  <meta content="Training und Vergleich von einstufigen und zweistufigen Objektdetektoren f&uuml;r f&uuml;nf allt&auml;gliche Gegenstandsklassen, einschlie&szlig;lich Datensatzentwicklung, Augmentierung und Evaluierung." property="og:description"/>
+  <meta content="https://mazen-younis.github.io/assets/social-preview.png" property="og:image"/>
+  <link href="https://mazen-younis.github.io/de/projects/computer-vision-detection.html" rel="canonical"/>
+  <link href="https://mazen-younis.github.io/projects/computer-vision-detection.html" hreflang="en" rel="alternate"/>
+  <link href="https://mazen-younis.github.io/de/projects/computer-vision-detection.html" hreflang="de" rel="alternate"/>
+  <link href="https://mazen-younis.github.io/projects/computer-vision-detection.html" hreflang="x-default" rel="alternate"/>
+  <meta content="https://mazen-younis.github.io/de/projects/computer-vision-detection.html" property="og:url"/>
+  <meta content="de_DE" property="og:locale"/>
+  <meta content="#101519" name="theme-color"/>
+  <link href="../../assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet"/>
+  <link href="../../styles.css" rel="stylesheet"/>
+  <script>
+   document.documentElement.classList.add('js')
+  </script>
+  <script defer="" src="../../script.js">
+  </script>
+ </head>
+ <body>
+  <a class="skip-link" href="#main">
+   Skip to content
+  </a>
+  <div aria-hidden="true" class="scroll-progress" id="scroll-progress">
+  </div>
+  <header class="site-header" id="site-header">
+   <div class="container nav-inner">
+    <a aria-label="Mazen Younis &mdash; Startseite" class="brand" href="../index.html">
+     <span class="brand-glyph">
+      M
+      <span class="brand-slash">
+       /
+      </span>
+      Y
+     </span>
+     <span class="brand-name">
+      MAZEN YOUNIS
+      <span class="brand-dot">
+       ✳
+      </span>
+      <small>
+       INGENIEUR &amp; SOFTWAREENTWICKLER
+      </small>
+     </span>
+    </a>
+    <nav aria-label="Hauptnavigation" class="desktop-nav">
+     <a href="../index.html#about">
+      &Uuml;ber mich
+     </a>
+     <a href="../index.html#work">
+      Projekte
+     </a>
+     <a href="../index.html#experience">
+      Erfahrung
+     </a>
+    </nav>
+    <div class="nav-right">
+     <nav aria-label="Sprache der Website / Website language" class="language-switch">
+      <a aria-label="Switch to English / Zur englischen Version wechseln" class="language-switch__link" data-language-switch="" href="../../projects/computer-vision-detection.html" hreflang="en" lang="en">
+       EN
+      </a>
+      <span aria-hidden="true" class="language-switch__separator">
+       /
+      </span>
+      <a aria-current="page" aria-label="Deutsch (aktuelle Sprache)" class="language-switch__link" data-language-switch="" href="computer-vision-detection.html" hreflang="de" lang="de">
+       DE
+      </a>
+     </nav>
+     <a class="nav-contact" href="../index.html#contact">
+      Kontakt
+      <span aria-hidden="true">
+       &nearrow;
+      </span>
+     </a>
+     <button aria-controls="mobile-nav" aria-expanded="false" aria-label="Men&uuml; &ouml;ffnen" class="menu-toggle" id="menu-toggle" type="button">
+      <span>
+      </span>
+      <span>
+      </span>
+     </button>
+    </div>
+   </div>
+   <nav aria-label="Mobile Navigation" class="mobile-nav" hidden="" id="mobile-nav">
+    <a href="../index.html#about">
+     &Uuml;ber mich
+    </a>
+    <a href="../index.html#work">
+     Projekte
+    </a>
+    <a href="../index.html#experience">
+     Erfahrung
+    </a>
+    <a href="../index.html#contact">
+     Kontakt
+    </a>
+   </nav>
+  </header>
+  <main id="main">
+   <section class="case-hero">
+    <div class="container">
+     <a class="back-link" href="../index.html#work">
+      <span aria-hidden="true">
+       &larr;
+      </span>
+      Alle Projekte
+     </a>
+     <div class="case-heading">
+      <div class="eyebrow">
+       <span class="signal-dot">
+       </span>
+       PROJEKT 03 / COMPUTER VISION / ANGEWANDTES MASCHINELLES LERNEN
+      </div>
+      <h1>
+       Objekterkennung: YOLOv8 vs. Faster R-CNN
+      </h1>
+      <p class="case-subtitle">
+       Zwei Ans&auml;tze. Ein Datensatz. Eine Erkenntnis &uuml;ber Datenqualit&auml;t.
+      </p>
+      <div class="case-actions">
+       <a class="button button-accent" href="https://github.com/mazen-younis/desk-object-detection-yolov8-faster-rcnn" rel="noopener noreferrer" target="_blank">
+        Auf GitHub ansehen
+        <span>
+         <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24">
+          <path d="M5 19 19 5M8 5h11v11">
+          </path>
+         </svg>
+        </span>
+       </a>
+       <span>
+        2026 / Studienprojekt im Master
+       </span>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="case-media-section">
+    <div class="container">
+     <div class="case-main-art">
+      <img alt="Illustration von Begrenzungsrahmen zur Objekterkennung bei Gegenst&auml;nden auf einem Schreibtisch; keine tats&auml;chliche Modellvorhersage" src="../../assets/img/vision-concept.svg"/>
+      <span>
+       MODELLVERGLEICH / VISUELLE STUDIE
+      </span>
+     </div>
+    </div>
+   </section>
+   <section class="case-body-section">
+    <div class="container case-body-grid">
+     <aside class="case-sidebar">
+      <div class="sidebar-sticky">
+       <span class="tiny-label">
+        PROJEKT IM &Uuml;BERBLICK
+       </span>
+       <div class="case-facts">
+        <div>
+         <span>
+          DETEKTOREN
+         </span>
+         <strong>
+          YOLOv8n / Faster R-CNN
+         </strong>
+        </div>
+        <div>
+         <span>
+          DATEN
+         </span>
+         <strong>
+          Finaler Trainingsdatensatz mit 120 Bildern
+         </strong>
+        </div>
+        <div>
+         <span>
+          ERGEBNIS
+         </span>
+         <strong>
+          YOLOv8n: 0,870 mAP@50&ndash;95
+         </strong>
+        </div>
+       </div>
+       <div class="case-tags">
+        <span>
+         Python
+        </span>
+        <span>
+         PyTorch
+        </span>
+        <span>
+         YOLOv8
+        </span>
+        <span>
+         Faster R-CNN
+        </span>
+       </div>
+       <div class="case-credit">
+        <span>
+         PROJEKTHINTERGRUND
+        </span>
+        <p>
+         Gemeinschaftsprojekt mit Mert Satici
+        </p>
+       </div>
+      </div>
+     </aside>
+     <div class="case-story">
+      <div class="case-intro">
+       Training und Vergleich von einstufigen und zweistufigen Objektdetektoren f&uuml;r f&uuml;nf allt&auml;gliche Gegenstandsklassen. Untersucht wurden die Entwicklung des Datensatzes, Datenaugmentierung und Modellleistung.
+      </div>
+      <div class="story-block">
+       <span class="story-index">
+        01 / DIE HERAUSFORDERUNG
+       </span>
+       <h2>
+        Die Herausforderung
+       </h2>
+       <p>
+        Reale Schreibtischszenen enthalten viele Objekte, die sich &uuml;berlagern oder schwer erkennen lassen. Das Projekt untersuchte, wie gezielte Datenerfassung und Augmentierung die Genauigkeit der Objekterkennung beeinflussen.
+       </p>
+      </div>
+      <div class="story-block">
+       <span class="story-index">
+        02 / DER ANSATZ
+       </span>
+       <h2>
+        Der Ansatz
+       </h2>
+       <p>
+        YOLOv8n wurde mit drei Versionen des Datensatzes trainiert. Anschlie&szlig;end evaluierten wir Faster R-CNN mithilfe eines eigenen Annotationskonverters und eines PyTorch-Dataset-Loaders. Verglichen wurden Precision, Recall, mAP und beispielhafte Erkennungen.
+       </p>
+       <ul>
+        <li>
+         F&uuml;nf Klassen: Flasche, Mobiltelefon, Tasse, Laptop und Maus
+        </li>
+        <li>
+         Umwandlung normalisierter YOLO-Annotationen in absolute Begrenzungsrahmen
+        </li>
+        <li>
+         Vergleich der Modelle anhand verschiedener mAP-Schwellenwerte
+        </li>
+        <li>
+         Dokumentation von Ergebnissen, Projektposter und Quellcode
+        </li>
+       </ul>
+      </div>
+      <div class="story-block">
+       <span class="story-index">
+        03 / DAS ERGEBNIS
+       </span>
+       <h2>
+        Das Ergebnis
+       </h2>
+       <p>
+        Der finale, nicht augmentierte Datensatz mit 120 Bildern erreichte den besten YOLOv8n-Wert f&uuml;r mAP@50&ndash;95 (0,870). Eine Helligkeitsaugmentierung verbesserte in einem Zwischenschritt den Recall, f&uuml;hrte aber zu mehr False Positives. Faster R-CNN erzielte 0,9952 mAP@50.
+       </p>
+       <blockquote>
+        YOLOv8n erreichte in der dokumentierten finalen Evaluierung 0,870 mAP@50&ndash;95.
+       </blockquote>
+      </div>
+      <div class="story-block">
+       <span class="story-index">
+        04 / AUSGEW&Auml;HLTE EINBLICKE
+       </span>
+       <h2>
+        Einblicke in das Projekt
+       </h2>
+       <div class="case-gallery">
+        <figure>
+         <img alt="Illustrative Darstellung von Objekterkennung, kein experimentelles Ergebnis" loading="lazy" src="../../assets/img/vision-concept.svg"/>
+         <figcaption>
+          Illustrative Darstellung der Objekterkennung (kein experimentelles Ergebnis)
+         </figcaption>
+        </figure>
+       </div>
+      </div>
+      <div class="case-note">
+       <span>
+        HINWEIS ZUR TRANSPARENZ
+       </span>
+       <p>
+        Die Projektgrafik ist eine Illustration. Die verlinkte GitHub-Dokumentation enth&auml;lt die tats&auml;chlichen Versuchsergebnisse und die vollst&auml;ndige Nennung der Mitwirkenden.
+       </p>
+      </div>
+      <div class="story-links">
+       <h2>
+        Projekt im Detail
+       </h2>
+       <a href="https://github.com/mazen-younis/desk-object-detection-yolov8-faster-rcnn" rel="noopener noreferrer" target="_blank">
+        <span>
+         Repository ansehen
+        </span>
+        <span>
+         <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24">
+          <path d="M5 19 19 5M8 5h11v11">
+          </path>
+         </svg>
+        </span>
+       </a>
+       <a href="https://github.com/mazen-younis/desk-object-detection-yolov8-faster-rcnn/blob/main/results/faster_rcnn/faster_rcnn_prediction_example.jpg" rel="noopener noreferrer" target="_blank">
+        <span>
+         Tats&auml;chliches Erkennungsergebnis ansehen
+        </span>
+        <span>
+         <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24">
+          <path d="M5 19 19 5M8 5h11v11">
+          </path>
+         </svg>
+        </span>
+       </a>
+       <a href="https://github.com/mazen-younis/desk-object-detection-yolov8-faster-rcnn/tree/main/results" rel="noopener noreferrer" target="_blank">
+        <span>
+         Evaluierungsdiagramme ansehen
+        </span>
+        <span>
+         <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24">
+          <path d="M5 19 19 5M8 5h11v11">
+          </path>
+         </svg>
+        </span>
+       </a>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="next-project">
+    <div class="container">
+     <div>
+      <span class="tiny-label">
+       ALS N&Auml;CHSTES / PROJEKT 04
+      </span>
+      <a href="reinforcement-learning-control.html">
+       Reinforcement Learning f&uuml;r Regelungssysteme
+       <span>
+        <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24">
+         <path d="M5 19 19 5M8 5h11v11">
+         </path>
+        </svg>
+       </span>
+      </a>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="site-footer">
+   <div class="container">
+    <div class="footer-top">
+     <div>
+      <a class="footer-monogram" href="../index.html">
+       M
+       <span>
+        /
+       </span>
+       Y
+      </a>
+      <p>
+       Software, die die physische
+       <br/>
+       und die intelligente Welt verbindet.
+      </p>
+     </div>
+     <div class="footer-links">
+      <a href="../index.html#work">
+       Projekte
+      </a>
+      <a href="../index.html#about">
+       &Uuml;ber mich
+      </a>
+      <a download="" href="../../assets/cv/Mazen_Younis_CV_EN.pdf">
+       CV / EN
+      </a>
+      <a download="" href="../../assets/cv/Mazen_Younis_CV_DE.pdf">
+       CV / DE
+      </a>
+     </div>
+     <div class="footer-links">
+      <a href="https://github.com/mazen-younis" rel="noopener noreferrer" target="_blank">
+       GitHub
+       <span aria-hidden="true" class="footer-arrow">
+        &nearrow;
+       </span>
+      </a>
+      <a href="https://www.linkedin.com/in/mazen-younis/" rel="noopener noreferrer" target="_blank">
+       LinkedIn
+       <span aria-hidden="true" class="footer-arrow">
+        &nearrow;
+       </span>
+      </a>
+      <a href="mailto:mazenyounis95@gmail.com">
+       E-Mail
+       <span aria-hidden="true" class="footer-arrow">
+        &nearrow;
+       </span>
+      </a>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <span>
+      &copy; 2026 Mazen Younis
+     </span>
+     <span>
+      Durchdacht gestaltet &middot; Entwickelt in Berlin
+     </span>
+     <a href="#main">
+      Zur&uuml;ck nach oben &uarr;
+     </a>
+    </div>
+   </div>
+  </footer>
+ </body>
+</html>
+

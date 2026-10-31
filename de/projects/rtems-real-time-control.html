@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="de">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="dark light" name="color-scheme"/>
+  <title>
+   RTEMS: Echtzeitf&auml;hige Embedded-Steuerung &mdash; Mazen Younis
+  </title>
+  <meta content="Embedded-C-Anwendung unter RTEMS mit GPIO-Steuerung, Interrupt-Verarbeitung und Synchronisation auf dem Raspberry Pi sowie Untersuchungen zu Scheduling und Priority Inheritance." name="description"/>
+  <meta content="website" property="og:type"/>
+  <meta content="RTEMS: Echtzeitf&auml;hige Embedded-Steuerung &mdash; Mazen Younis" property="og:title"/>
+  <meta content="Embedded-C-Anwendung unter RTEMS mit GPIO-Steuerung, Interrupt-Verarbeitung und Synchronisation auf dem Raspberry Pi sowie Untersuchungen zu Scheduling und Priority Inheritance." property="og:description"/>
+  <meta content="https://mazen-younis.github.io/assets/social-preview.png" property="og:image"/>
+  <link href="https://mazen-younis.github.io/de/projects/rtems-real-time-control.html" rel="canonical"/>
+  <link href="https://mazen-younis.github.io/projects/rtems-real-time-control.html" hreflang="en" rel="alternate"/>
+  <link href="https://mazen-younis.github.io/de/projects/rtems-real-time-control.html" hreflang="de" rel="alternate"/>
+  <link href="https://mazen-younis.github.io/projects/rtems-real-time-control.html" hreflang="x-default" rel="alternate"/>
+  <meta content="https://mazen-younis.github.io/de/projects/rtems-real-time-control.html" property="og:url"/>
+  <meta content="de_DE" property="og:locale"/>
+  <meta content="#101519" name="theme-color"/>
+  <link href="../../assets/favicon.svg" rel="icon" type="image/svg+xml"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=DM+Sans:wght@400;500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet"/>
+  <link href="../../styles.css" rel="stylesheet"/>
+  <script>
+   document.documentElement.classList.add('js')
+  </script>
+  <script defer="" src="../../script.js">
+  </script>
+ </head>
+ <body>
+  <a class="skip-link" href="#main">
+   Skip to content
+  </a>
+  <div aria-hidden="true" class="scroll-progress" id="scroll-progress">
+  </div>
+  <header class="site-header" id="site-header">
+   <div class="container nav-inner">
+    <a aria-label="Mazen Younis &mdash; Startseite" class="brand" href="../index.html">
+     <span class="brand-glyph">
+      M
+      <span class="brand-slash">
+       /
+      </span>
+      Y
+     </span>
+     <span class="brand-name">
+      MAZEN YOUNIS
+      <span class="brand-dot">
+       ✳
+      </span>
+      <small>
+       INGENIEUR &amp; SOFTWAREENTWICKLER
+      </small>
+     </span>
+    </a>
+    <nav aria-label="Hauptnavigation" class="desktop-nav">
+     <a href="../index.html#about">
+      &Uuml;ber mich
+     </a>
+     <a href="../index.html#work">
+      Projekte
+     </a>
+     <a href="../index.html#experience">
+      Erfahrung
+     </a>
+    </nav>
+    <div class="nav-right">
+     <nav aria-label="Sprache der Website / Website language" class="language-switch">
+      <a aria-label="Switch to English / Zur englischen Version wechseln" class="language-switch__link" data-language-switch="" href="../../projects/rtems-real-time-control.html" hreflang="en" lang="en">
+       EN
+      </a>
+      <span aria-hidden="true" class="language-switch__separator">
+       /
+      </span>
+      <a aria-current="page" aria-label="Deutsch (aktuelle Sprache)" class="language-switch__link" data-language-switch="" href="rtems-real-time-control.html" hreflang="de" lang="de">
+       DE
+      </a>
+     </nav>
+     <a class="nav-contact" href="../index.html#contact">
+      Kontakt
+      <span aria-hidden="true">
+       &nearrow;
+      </span>
+     </a>
+     <button aria-controls="mobile-nav" aria-expanded="false" aria-label="Men&uuml; &ouml;ffnen" class="menu-toggle" id="menu-toggle" type="button">
+      <span>
+      </span>
+      <span>
+      </span>
+     </button>
+    </div>
+   </div>
+   <nav aria-label="Mobile Navigation" class="mobile-nav" hidden="" id="mobile-nav">
+    <a href="../index.html#about">
+     &Uuml;ber mich
+    </a>
+    <a href="../index.html#work">
+     Projekte
+    </a>
+    <a href="../index.html#experience">
+     Erfahrung
+    </a>
+    <a href="../index.html#contact">
+     Kontakt
+    </a>
+   </nav>
+  </header>
+  <main id="main">
+   <section class="case-hero">
+    <div class="container">
+     <a class="back-link" href="../index.html#work">
+      <span aria-hidden="true">
+       &larr;
+      </span>
+      Alle Projekte
+     </a>
+     <div class="case-heading">
+      <div class="eyebrow">
+       <span class="signal-dot">
+       </span>
+       PROJEKT 02 / EMBEDDED SYSTEMS / ECHTZEITSOFTWARE
+      </div>
+      <h1>
+       RTEMS: Echtzeitf&auml;hige Embedded-Steuerung
+      </h1>
+      <p class="case-subtitle">
+       Vorhersagbares Softwareverhalten auf realer Hardware.
+      </p>
+      <div class="case-actions">
+       <a class="button button-accent" href="https://github.com/mazen-younis/rtems-realtime-embedded-control" rel="noopener noreferrer" target="_blank">
+        Auf GitHub ansehen
+        <span>
+         <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24">
+          <path d="M5 19 19 5M8 5h11v11">
+          </path>
+         </svg>
+        </span>
+       </a>
+       <span>
+        2026 / Studienprojekt zu fortgeschrittenen Echtzeitsystemen
+       </span>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="case-media-section">
+    <div class="container">
+     <div class="case-main-art">
+      <img alt="Raspberry Pi und GPIO-Aufbau aus den urspr&uuml;nglichen RTEMS-Laborversuchen" src="../../assets/img/rtems-hardware.webp"/>
+      <span>
+       RTEMS / AUF HARDWARE GETESTET
+      </span>
+     </div>
+    </div>
+   </section>
+   <section class="case-body-section">
+    <div class="container case-body-grid">
+     <aside class="case-sidebar">
+      <div class="sidebar-sticky">
+       <span class="tiny-label">
+        PROJEKT IM &Uuml;BERBLICK
+       </span>
+       <div class="case-facts">
+        <div>
+         <span>
+          PLATTFORM
+         </span>
+         <strong>
+          RTEMS 7 / Raspberry Pi
+         </strong>
+        </div>
+        <div>
+         <span>
+          SCHWERPUNKT
+         </span>
+         <strong>
+          Threads, Interrupts und Synchronisation
+         </strong>
+        </div>
+        <div>
+         <span>
+          NACHWEISE
+         </span>
+         <strong>
+          Hardwaretests und Scheduling-Diagramme
+         </strong>
+        </div>
+       </div>
+       <div class="case-tags">
+        <span>
+         C
+        </span>
+        <span>
+         RTEMS
+        </span>
+        <span>
+         POSIX Threads
+        </span>
+        <span>
+         Raspberry Pi
+        </span>
+       </div>
+       <div class="case-credit">
+        <span>
+         PROJEKTHINTERGRUND
+        </span>
+        <p>
+         Eigenst&auml;ndige Projektarbeit im Rahmen einer Lehrveranstaltung
+        </p>
+       </div>
+      </div>
+     </aside>
+     <div class="case-story">
+      <div class="case-intro">
+       Eine Embedded-C-Anwendung unter RTEMS zur GPIO-Steuerung mit Threads, Interrupt-Verarbeitung und Synchronisation auf einem Raspberry Pi. Erg&auml;nzend wurden Scheduling und Priority Inheritance analysiert.
+      </div>
+      <div class="story-block">
+       <span class="story-index">
+        01 / DIE HERAUSFORDERUNG
+       </span>
+       <h2>
+        Die Herausforderung
+       </h2>
+       <p>
+        Echtzeitanwendungen m&uuml;ssen auf externe Ereignisse reagieren und nebenl&auml;ufige Aufgaben koordinieren. Dabei gilt es, Konflikte beim Zugriff auf gemeinsame Ressourcen und die Auswirkungen zeitkritischer Abl&auml;ufe zu begrenzen.
+       </p>
+      </div>
+      <div class="story-block">
+       <span class="story-index">
+        02 / DER ANSATZ
+       </span>
+       <h2>
+        Der Ansatz
+       </h2>
+       <p>
+        Ich implementierte die GPIO-Steuerung in C mit POSIX-Threads, Interrupts, Mutexen und Semaphoren. Zus&auml;tzlich untersuchte ich das RTEMS-Scheduling mithilfe von QEMU, GDB und Capture-Engine-Traces, einschlie&szlig;lich Priorit&auml;tsinversion und Priority Inheritance.
+       </p>
+       <ul>
+        <li>
+         Periodisches Schalten von GPIO-Ausg&auml;ngen mit POSIX-Threads
+        </li>
+        <li>
+         Interrupt-gesteuerte Verarbeitung von Ein- und Ausgaben
+        </li>
+        <li>
+         Semaphore und Mutexe zur Koordination gemeinsam genutzter Zust&auml;nde
+        </li>
+        <li>
+         Gantt-, Sequenz- und Zustandsdiagramme zur Thread- und Scheduling-Analyse
+        </li>
+       </ul>
+      </div>
+      <div class="story-block">
+       <span class="story-index">
+        03 / DAS ERGEBNIS
+       </span>
+       <h2>
+        Das Ergebnis
+       </h2>
+       <p>
+        Die urspr&uuml;nglichen GPIO-Versuche auf dem Ger&auml;t, Terminalbeobachtungen und die Scheduling-Analyse wurden dokumentiert. Der Quellcode wurde anschlie&szlig;end f&uuml;r die &ouml;ffentliche Darstellung korrigiert, jedoch nicht erneut unabh&auml;ngig auf der Hardware getestet.
+       </p>
+       <blockquote>
+        Hardwareversuche und eine Analyse des Echtzeit-Schedulings.
+       </blockquote>
+      </div>
+      <div class="story-block">
+       <span class="story-index">
+        04 / AUSGEW&Auml;HLTE EINBLICKE
+       </span>
+       <h2>
+        Einblicke in das Projekt
+       </h2>
+       <div class="case-gallery">
+        <figure>
+         <img alt="Raspberry Pi und GPIO-Hardwareaufbau" loading="lazy" src="../../assets/img/rtems-hardware.webp"/>
+         <figcaption>
+          Raspberry Pi und GPIO-Hardwareaufbau
+         </figcaption>
+        </figure>
+        <figure>
+         <img alt="Ausgangsanzeigen der Hardware aus den Labortests" loading="lazy" src="../../assets/img/rtems-leds.webp"/>
+         <figcaption>
+          Ausgangsanzeigen der Hardware aus den Labortests
+         </figcaption>
+        </figure>
+       </div>
+      </div>
+      <div class="case-note">
+       <span>
+        HINWEIS ZUR TRANSPARENZ
+       </span>
+       <p>
+        Das Repository unterscheidet zwischen der urspr&uuml;nglich auf Hardware getesteten Abgabe und dem &uuml;berarbeiteten Quellcode, der nicht erneut getestet wurde.
+       </p>
+      </div>
+      <div class="story-links">
+       <h2>
+        Projekt im Detail
+       </h2>
+       <a href="https://github.com/mazen-younis/rtems-realtime-embedded-control" rel="noopener noreferrer" target="_blank">
+        <span>
+         Repository ansehen
+        </span>
+        <span>
+         <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24">
+          <path d="M5 19 19 5M8 5h11v11">
+          </path>
+         </svg>
+        </span>
+       </a>
+       <a href="https://github.com/mazen-younis/rtems-realtime-embedded-control/tree/main/docs/scheduling" rel="noopener noreferrer" target="_blank">
+        <span>
+         Scheduling-Analyse
+        </span>
+        <span>
+         <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24">
+          <path d="M5 19 19 5M8 5h11v11">
+          </path>
+         </svg>
+        </span>
+       </a>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="next-project">
+    <div class="container">
+     <div>
+      <span class="tiny-label">
+       ALS N&Auml;CHSTES / PROJEKT 03
+      </span>
+      <a href="computer-vision-detection.html">
+       Objekterkennung: YOLOv8 vs. Faster R-CNN
+       <span>
+        <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24">
+         <path d="M5 19 19 5M8 5h11v11">
+         </path>
+        </svg>
+       </span>
+      </a>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="site-footer">
+   <div class="container">
+    <div class="footer-top">
+     <div>
+      <a class="footer-monogram" href="../index.html">
+       M
+       <span>
+        /
+       </span>
+       Y
+      </a>
+      <p>
+       Software, die die physische
+       <br/>
+       und die intelligente Welt verbindet.
+      </p>
+     </div>
+     <div class="footer-links">
+      <a href="../index.html#work">
+       Projekte
+      </a>
+      <a href="../index.html#about">
+       &Uuml;ber mich
+      </a>
+      <a download="" href="../../assets/cv/Mazen_Younis_CV_EN.pdf">
+       CV / EN
+      </a>
+      <a download="" href="../../assets/cv/Mazen_Younis_CV_DE.pdf">
+       CV / DE
+      </a>
+     </div>
+     <div class="footer-links">
+      <a href="https://github.com/mazen-younis" rel="noopener noreferrer" target="_blank">
+       GitHub
+       <span aria-hidden="true" class="footer-arrow">
+        &nearrow;
+       </span>
+      </a>
+      <a href="https://www.linkedin.com/in/mazen-younis/" rel="noopener noreferrer" target="_blank">
+       LinkedIn
+       <span aria-hidden="true" class="footer-arrow">
+        &nearrow;
+       </span>
+      </a>
+      <a href="mailto:mazenyounis95@gmail.com">
+       E-Mail
+       <span aria-hidden="true" class="footer-arrow">
+        &nearrow;
+       </span>
+      </a>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <span>
+      &copy; 2026 Mazen Younis
+     </span>
+     <span>
+      Durchdacht gestaltet &middot; Entwickelt in Berlin
+     </span>
+     <a href="#main">
+      Zur&uuml;ck nach oben &uarr;
+     </a>
+    </div>
+   </div>
+  </footer>
+ </body>
+</html>
+
