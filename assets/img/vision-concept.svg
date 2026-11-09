@@ -20,6 +20,8 @@
   <text x="74" y="85" font-family="Arial, sans-serif" font-size="14"
         letter-spacing="3" fill="#d9fb93">OBJECT DETECTION / MODEL COMPARISON</text>
 
+  <!-- The inner illustration is slightly smaller to allow more breathing room at the wide card crop. -->
+  <g transform="translate(99 58) scale(0.78)">
   <!-- Stylised laptop: recognizable, but deliberately flat and diagrammatic. -->
   <g transform="rotate(-6 330 358)">
     <rect x="117" y="191" width="396" height="266" rx="14"
@@ -54,6 +56,8 @@
   <rect x="746" y="468" width="124" height="34" rx="5" fill="#d9fb93" />
   <text x="758" y="491" font-family="Arial, sans-serif" font-size="18"
         font-weight="600" fill="#203028">mouse</text>
+
+  </g>
 
   <!-- Small provenance marker: an illustration, not a screenshot of detector results. -->
   <text x="74" y="586" font-family="Arial, sans-serif" font-size="13"
