@@ -11,8 +11,8 @@
 <g font-family="Arial,sans-serif" fill="#ecf1e9">
  <text x="74" y="85" font-size="14" letter-spacing="3" fill="#d9fb93">LEARNING THROUGH FEEDBACK</text>
 </g>
-<!-- The inner diagram is scaled and raised to leave a clear gap above the website caption. -->
-<g transform="translate(90 6) scale(0.80)">
+<!-- The original diagram is positioned slightly lower for balance within the project-card crop. -->
+<g transform="translate(90 36) scale(0.80)">
 <g fill="none" stroke="#9fbdac" stroke-width="2.5" opacity=".65">
   <path d="M273 331 H349"/><path d="M563 331 H636"/>
   <path d="M745 432 V474 H166 V426" stroke-dasharray="7 9"/>
